@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="sv" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servigo - Din kompletta serviceapp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        .slide-in-up {
+            animation: slideInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .blob {
+            filter: blur(40px);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 backdrop-blur-lg bg-white/80 shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">
+                    <img src="logo.png" alt="Servigo logotyp" class="h-10 inline-block align-middle" />
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-gray-700 hover:text-indigo-600 transition">Funktioner</a>
+                    <a href="#benefits" class="text-gray-700 hover:text-indigo-600 transition">Fördelar</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-indigo-600 transition">Priser</a>
+                    <a href="#contact" class="text-gray-700 hover:text-indigo-600 transition">Kontakt</a>
+                </div>
+                <button class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2 rounded-full hover:shadow-lg transition transform hover:scale-105">
+                    Kom igång
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 flex items-center justify-center overflow-hidden pt-20">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0">
+            <div class="blob absolute top-20 left-20 w-96 h-96 bg-purple-400 rounded-full"></div>
+            <div class="blob absolute bottom-20 right-20 w-72 h-72 bg-pink-400 rounded-full"></div>
+            <div class="blob absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-300 rounded-full"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center text-white relative z-10 flex flex-col items-center justify-center py-10 md:py-20 min-h-[70vh]">
+            <h1 class="text-4xl md:text-7xl font-bold mb-4 md:mb-6 slide-in-up">
+                Välkommen till <span class="text-yellow-200">Servigo</span>
+            </h1>
+            <p class="text-lg md:text-2xl mb-4 md:mb-8 slide-in-up delay-1 max-w-3xl mx-auto">
+                Den ultimata plattformen för att hantera alla dina servicebehov på ett ställe
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center slide-in-up delay-2 mb-4 md:mb-8">
+                <button id="showDemoVideo" class="bg-white text-blue-700 px-8 py-4 rounded-full font-semibold hover:shadow-2xl transition transform hover:scale-105">
+                    <i class="fas fa-play mr-2"></i> Se demo
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-700 transition transform hover:scale-105">
+                    <i class="fas fa-download mr-2"></i> Ladda ner app
+                </button>
+            </div>
+            
+            <!-- Phone mockup -->
+            <div class="slide-in-up delay-3 flex justify-center items-center w-full h-full">
+                <img src="servigo-mockup.webp" alt="Servigo mobilmockup" class="float-animation object-contain w-full h-[28rem] md:w-[32rem] md:h-[40rem] mx-auto -mt-8 md:-mt-12 mb-0 md:mb-8" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">Kraftfulla funktioner</h2>
+            <p class="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
+                Upptäck alla fantastiska funktioner som gör Servigo till det perfekta valet för dig
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar-check text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Smart schemaläggning</h3>
+                    <p class="text-gray-600">Boka och hantera dina servicetider enkelt med vår intelligenta kalender och automatiska påminnelser.</p>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Rapporter</h3>
+                    <p class="text-gray-600">Underlätta det administrativa arbetet och få anpassningsbara rapporter.</p>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">GPS & tidsloggar</h3>
+                    <p class="text-gray-600">Säkerställ att arbetarna är på rätt plats och på rätt tid.</p>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Kundportal</h3>
+                    <p class="text-gray-600">Låt kunderna hantera sina bokningar och se status på sina tjänster.</p>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="bg-gradient-to-r from-red-500 to-red-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Mobilapp</h3>
+                    <p class="text-gray-600">Ta med dig Servigo överallt med vår webbapp.</p>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg">
+                    <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Integrationer</h3>
+                    <p class="text-gray-600">Smarta integrationer med vanliga system utvecklas ständigt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-gradient-to-br from-blue-600 to-indigo-800 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16">Varför välja Servigo?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center justify-center max-w-4xl mx-auto">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-white/20 p-3 rounded-full">
+                            <i class="fas fa-rocket text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Admin</h3>
+                            <p class="text-blue-100">Skapa nya uppdrag, lägg till användare och hantera allt inom din verksamhet.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-white/20 p-3 rounded-full">
+                            <i class="fas fa-headset text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Användare</h3>
+                            <p class="text-blue-100">Din anställd ser bara sina uppdrag och kan checka in och ut på uppdraget.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-white/20 p-3 rounded-full">
+                            <i class="fas fa-sync text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Kundportal</h3>
+                            <p class="text-blue-100">Låt dina kunder se status och godkänna uppdrag.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carousel for mockup images -->
+                <div class="relative w-full h-[32rem] flex items-center justify-center">
+                    <img src="screen-1.png" alt="Mockup 1" class="carousel-img absolute inset-0 w-full h-full object-contain mx-auto opacity-100 transition-opacity duration-1000" style="z-index:2;" />
+                    <img src="screen-2.png" alt="Mockup 2" class="carousel-img absolute inset-0 w-full h-full object-contain mx-auto opacity-0 transition-opacity duration-1000" style="z-index:1;" />
+                    <img src="screen-3.png" alt="Mockup 3" class="carousel-img absolute inset-0 w-full h-full object-contain mx-auto opacity-0 transition-opacity duration-1000" style="z-index:0;" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-4 gradient-text">Enkla priser</h2>
+            <p class="text-xl text-gray-600 text-center mb-16">Välj den plan som passar dig bäst</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold mb-4">Starter</h3>
+                    <div class="text-4xl font-bold mb-6">299 kr<span class="text-lg text-gray-500">/mån</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Upp till 50 bokningar/mån</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Grundläggande funktioner</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Email support</li>
+                    </ul>
+                    <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-full hover:bg-gray-300 transition">Välj plan</button>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-600 to-indigo-800 text-white rounded-2xl shadow-xl p-8 transform scale-105 card-hover">
+                    <div class="bg-yellow-400 text-gray-800 text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">POPULÄRAST</div>
+                    <h3 class="text-2xl font-bold mb-4">Professional</h3>
+                    <div class="text-4xl font-bold mb-6">599 kr<span class="text-lg opacity-80">/mån</span></div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i> Obegränsade bokningar</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i> Alla funktioner</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i> Prioriterad support</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2"></i> Anpassad branding</li>
+                    </ul>
+                    <button class="w-full bg-white text-blue-700 py-3 rounded-full hover:shadow-lg transition font-semibold">Välj plan</button>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+                    <h3 class="text-2xl font-bold mb-4">Enterprise</h3>
+                    <div class="text-4xl font-bold mb-6">Kontakt</div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Skräddarsydd lösning</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Dedikerad support</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> API-åtkomst</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Onboarding</li>
+                    </ul>
+                    <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-full hover:bg-gray-300 transition">Kontakta oss</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Redo att komma igång?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Anslut dig till tusentals nöjda användare och ta din verksamhet till nästa nivå</p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <button class="bg-white text-purple-700 px-8 py-4 rounded-full font-semibold hover:shadow-2xl transition transform hover:scale-105">
+                    Starta gratis provperiod
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-700 transition transform hover:scale-105">
+                    Boka demo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <img src="logo.png" alt="Servigo logotyp" class="h-10 inline-block align-middle" />
+                    </h3>
+                    <p class="text-gray-400">Din kompletta serviceplattform för moderna företag.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Produkter</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Funktioner</a></li>
+                        <li><a href="#" class="hover:text-white transition">Priser</a></li>
+                        <li><a href="#" class="hover:text-white transition">Integrationer</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Företag</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Om oss</a></li>
+                        <li><a href="#" class="hover:text-white transition">Karriär</a></li>
+                        <li><a href="#" class="hover:text-white transition">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Följ oss</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Servigo. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+        <div class="relative w-full max-w-2xl mx-auto p-4">
+            <button id="closeVideoModal" class="absolute top-2 right-2 text-white text-2xl">&times;</button>
+            <video id="demoVideo" class="w-full rounded-lg" controls>
+                <source src="videos/demo.mp4" type="video/mp4">
+                Din webbläsare stödjer inte videouppspelning.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card-hover').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Carousel for mockup images in Benefits section
+        const carouselImages = document.querySelectorAll('.carousel-img');
+        let carouselIndex = 0;
+        setInterval(() => {
+            carouselImages.forEach((img, i) => {
+                img.style.opacity = (i === carouselIndex) ? '1' : '0';
+                img.style.zIndex = (i === carouselIndex) ? '2' : '1';
+            });
+            carouselIndex = (carouselIndex + 1) % carouselImages.length;
+        }, 3000);
+
+        // Video modal logic
+        document.getElementById('showDemoVideo').addEventListener('click', function() {
+            document.getElementById('videoModal').classList.remove('hidden');
+            document.getElementById('demoVideo').play();
+        });
+        document.getElementById('closeVideoModal').addEventListener('click', function() {
+            document.getElementById('videoModal').classList.add('hidden');
+            document.getElementById('demoVideo').pause();
+            document.getElementById('demoVideo').currentTime = 0;
+        });
+        // Optional: close modal when clicking outside video
+        document.getElementById('videoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+                document.getElementById('demoVideo').pause();
+                document.getElementById('demoVideo').currentTime = 0;
+            }
+        });
+    </script>
+</body>
+</html>
